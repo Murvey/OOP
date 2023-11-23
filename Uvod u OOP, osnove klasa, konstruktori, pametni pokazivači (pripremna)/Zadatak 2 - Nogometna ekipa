@@ -4,7 +4,6 @@
 using namespace std;
 
 
-
 class Igrac {
 public:
     int broj;
