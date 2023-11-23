@@ -1,3 +1,13 @@
+/*
+Svaka knjižnica ima podatak o nazivu i adresi, te popis knjiga koje su dostupne u toj knjižnici. Svaka knjiga ima naslov i autora, te broj posuđenih i dostupnih primjeraka.
+a)    deklarirajte klase 'Knjiznica' i 'Knjiga'te njihove članove, tako da se pomoću njih može opisati gore navedena specifikacija.
+b)    u funkciji main dodajte slijedeći programski odsječak te implementirajte sve potrebne metode da bi se mogao uspješno izvesti
+Knjiga knjiga("Knjiga 1", "Autor 1", 20, 15);
+Knjiznica knjiznica("Knjiznica 1", "Adresa 1", knjiga)//knjiga automatski dodana knjiznici
+c)    u klasi Knjiznica deklarirajte metodu 'PriKrajuZaliha' koja vraća popis svih knjiga čiji je broj dostupnih primjeraka manji od 10. Implementaciju metode napišite van klase
+d)    implementirajte metodu 'Sortiraj' unutar klase Knjiznica koja će sortirati sve knjige počevši kod onih koje su najviše puta posuđene prema manje
+e)    napišite globalnu funkciju 'NajvisePrimjeraka' koja prima popis knjižnica, a vraća knjižnicu koja ima najveći broj dostupnih primjeraka knjiga
+*/
 #include <iostream>
 #include <vector>
 
