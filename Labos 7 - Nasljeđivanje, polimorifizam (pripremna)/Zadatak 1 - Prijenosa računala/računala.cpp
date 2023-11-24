@@ -101,8 +101,8 @@ int main() {
 
     //Dolazi do polimorfizma - moramo paziti da zadovoljavamo uvjete
     //Moramo imati nasljeđivanje (klase Laptop i Tablet nasljeduju klasu racunalo)
-    //Mora biti pretvorba na viši tip podatka
-    //Mora postojati virtualna metoda u baznoj klasi
+    //Mora biti pretvorba na viši tip podatka(Pri definiranju vektora<Racunalo*> Ucionica1)
+    //Mora postojati virtualna metoda u baznoj klasi(Virtualne metode getSustav(), getRacunalo(), ispis() )
     
     vector<Racunalo*> Ucionica1 = { &Acer, &Prestigio, &Dell, &IBM, &Toshiba };
     AnalizaUcionice(Ucionica1, &brTableta, &brLaptopa, &brAndroida, &brWindowsa, &brLinuxa);
