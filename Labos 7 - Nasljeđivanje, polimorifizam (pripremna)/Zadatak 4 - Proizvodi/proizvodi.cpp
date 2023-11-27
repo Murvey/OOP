@@ -29,3 +29,69 @@ return 0;
 
 */
 
+#include<iostream>
+#include<vector>
+using namespace std;
+
+class Proizvod {
+protected:
+	string naziv;
+	double cijena;
+public:
+	Proizvod(string naziv, double cijena) {
+		this->naziv = naziv;
+		this->cijena = cijena;
+	}
+	virtual double getKoefKvalitete() = 0;
+	virtual void print() = 0;
+};
+
+class Automobil : public Proizvod {
+public:
+	int godina;
+	double brzina;
+	Automobil(string naziv, double cijena, int godina, double brzina) :Proizvod(naziv, cijena) {
+		this->godina = godina;
+		this->brzina = brzina;
+	}
+	void print() {}
+	double getKoefKvalitete() {
+		double koef = 1.0 / (2015 - godina) * brzina / 100.0 * cijena / 100000.0;
+		return koef;
+	}
+};
+
+class LegoIgracka : public Proizvod{
+public:
+	int brKomada;
+	LegoIgracka(string naziv, double cijena, int brKomada) : Proizvod(naziv,cijena){
+		this->brKomada = brKomada;
+	}
+	void print() {
+		cout <<"Naziv proizvoda - " << naziv << " , cijena proizvoda - " << cijena <<" , broj komada lego igracke - " << brKomada<< endl;
+	}
+	double getKoefKvalitete() {
+		double koef = brKomada/cijena;
+		return koef;
+	}
+};
+
+int main()
+{
+	vector<Proizvod*> vp = {
+	new LegoIgracka("Star Wars - Millenium Falcon", 2250.99, 756), //1. parametar = naziv, 2. parametar = cijena, 3. parametar = br. komada
+	new Automobil("BMW", 51230, 2013, 207.34), //1. parametar = naziv, 2. parametar = cijena, 3. parametar = god. proizvodnje, 4. parametar = max brzina
+	new LegoIgracka("Vlakic na upravljanje", 1750.99, 877),
+	new Automobil("Yugo 45", 14500, 1988, 127.88),
+	};
+
+	for (int i = 0; i < 4; i++) {
+		vp[i]->print();
+	}
+
+	/*
+	Dodati kod za pronalazak proizvoda s najvećim koeficijentom i ispis tog proizvoda i odgovarajućeg koeficijenta.
+	*/
+
+	return 0;
+}
