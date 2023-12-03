@@ -54,25 +54,29 @@ public:
 		this->godina = godina;
 		this->brzina = brzina;
 	}
-	void print() {}
+	
 	double getKoefKvalitete() {
 		double koef = 1.0 / (2015 - godina) * brzina / 100.0 * cijena / 100000.0;
 		return koef;
 	}
+	void print() {
+		cout << "Naziv proizvoda - " << naziv << " , cijena proizvoda - " << cijena << " , godina proizvodnje automobila - " << godina << " , maksimalna brzina automobila - " << brzina << endl;
+	}
 };
 
-class LegoIgracka : public Proizvod{
+class LegoIgracka : public Proizvod {
 public:
 	int brKomada;
-	LegoIgracka(string naziv, double cijena, int brKomada) : Proizvod(naziv,cijena){
+	LegoIgracka(string naziv, double cijena, int brKomada) : Proizvod(naziv, cijena) {
 		this->brKomada = brKomada;
 	}
-	void print() {
-		cout <<"Naziv proizvoda - " << naziv << " , cijena proizvoda - " << cijena <<" , broj komada lego igracke - " << brKomada<< endl;
-	}
+	
 	double getKoefKvalitete() {
-		double koef = brKomada/cijena;
+		double koef = brKomada / cijena;
 		return koef;
+	}
+	void print() {
+		cout << "Naziv proizvoda - " << naziv << " , cijena proizvoda - " << cijena << " , broj komada lego igracke - " << brKomada << endl;
 	}
 };
 
@@ -92,6 +96,17 @@ int main()
 	/*
 	Dodati kod za pronalazak proizvoda s najvećim koeficijentom i ispis tog proizvoda i odgovarajućeg koeficijenta.
 	*/
+	Proizvod* najveci = NULL;
+	double naj = 0.0;
+	for (int i = 0; i < vp.size(); i++) {
+		if (vp[i]->getKoefKvalitete() > naj) {
+			naj = vp[i]->getKoefKvalitete();
+			najveci = vp[i];
+		}
+	}
 
+	cout << "Proizvod s najvecim koeficijentom kvalitete i njegov koeficijent je > " << endl;
+	najveci->print();
+	cout << najveci->getKoefKvalitete() << endl;
 	return 0;
 }
